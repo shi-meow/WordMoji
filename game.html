@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordMoji</title>
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <img src="src/assets/title.png" alt="WordMoji" class="game-title" style="height: calc(32px + 0.8vw); width: auto; margin: 0;">
+            <div class="score-container">
+                Score: <span id="score">0</span>
+                | Words: <span id="wordsFound">0</span>/<span id="totalWords">0</span>
+            </div>
+        </header>
+
+        <div class="message" id="message"></div>
+        
+        <div class="current-word-container">
+            <div id="currentWord" class="current-word"></div>
+        </div>
+
+        <div class="grid-container" id="grid"></div>
+
+        <div class="word-info-panel" id="wordInfoPanel">
+            <h2 id="wordInfoTitle">Word Information</h2>
+            <div id="visualization-container"></div>
+            <div class="word-info-content" id="wordInfoContent"></div>
+        </div>
+    </div>
+    <script type="module">
+        // Initialize game only when explicitly called
+        import { WordGame } from './src/components/game.js';
+        window.initGame = () => {
+            const game = new WordGame();
+            game.initializeGameComponents();
+        };
+    </script>
+</body>
+</html>
